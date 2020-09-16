@@ -10,6 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "out.txt",
+				"folderPath": "output",
 				"container": "adftraining"
 			},
 			"columnDelimiter": ",",
