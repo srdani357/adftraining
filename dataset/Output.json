@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "out.txt",
-				"folderPath": "output",
+				"folderPath": "input",
 				"container": "adftraining"
 			},
 			"columnDelimiter": ",",
