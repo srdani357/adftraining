@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "Lookup Staging Row Count",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -26,6 +26,12 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "Actions on Staging Row Count",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": []
 			}
 		],
 		"annotations": []
