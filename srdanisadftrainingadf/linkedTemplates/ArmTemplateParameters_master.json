@@ -17,6 +17,9 @@
 		"AzureSQLsrdanisadftrainingsqldbazsqldb_connectionString": {
 			"value": ""
 		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
 		"PublicDataset_sasUri": {
 			"value": ""
 		},
