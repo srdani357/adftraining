@@ -67,6 +67,31 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "LabNotebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ivkovic.srdan@gmail.com/03-Data-Ingestion-Via-ADF/03-Data-Transformation",
+					"baseParameters": {
+						"accountName": "srdanisadftrainingblob",
+						"accountKey": "BWJHmfYWM0WE/Hpi8N6wx8MpFx9fwQBF9bqgEFHSvzznKgvPo40wamrKI+WgobnyUzYGolqjOaHSdWh1Eys6rA==",
+						"containerName": "dwtemp"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
