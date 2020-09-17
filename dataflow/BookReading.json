@@ -6,13 +6,6 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "CSVBookset",
-						"type": "DatasetReference"
-					},
-					"name": "CVSBooksetOUT"
-				},
-				{
-					"dataset": {
 						"referenceName": "CSVBookset2",
 						"type": "DatasetReference"
 					},
@@ -38,11 +31,18 @@
 						"type": "DatasetReference"
 					},
 					"name": "CSVBookset5OUT"
+				},
+				{
+					"dataset": {
+						"referenceName": "CVSBookset",
+						"type": "DatasetReference"
+					},
+					"name": "CSVBooksetOUT"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string,\n\t\tColumn_13 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CVSBooksetOUT\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string,\n\t\tColumn_13 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset2OUT\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string,\n\t\tColumn_13 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset3OUT\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset4OUT\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset5OUT"
+			"script": "source(output(\n\t\tBook_Id as integer,\n\t\tISBN as string,\n\t\tISBN13 as long,\n\t\tMy_Rating as short,\n\t\tDate_Read as string,\n\t\tDate_Added as string,\n\t\tBookshelves as string,\n\t\tExclusive_Shelf as string,\n\t\tMy_Review as string,\n\t\tSpoiler as boolean,\n\t\tPrivate_Notes as string,\n\t\tRead_Count as short,\n\t\tOriginal_Purchase_Date as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset2OUT\nsource(output(\n\t\tBook_Id as integer,\n\t\tISBN as string,\n\t\tISBN13 as long,\n\t\tMy_Rating as short,\n\t\tDate_Read as string,\n\t\tDate_Added as string,\n\t\tOriginal_Purchase_Date as string,\n\t\tSpoiler as string,\n\t\tBookshelves as string,\n\t\tExclusive_Shelf as string,\n\t\tPrivate_Notes as string,\n\t\tRead_Count as short,\n\t\tMy_Review as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset3OUT\nsource(output(\n\t\tBook_Id as integer,\n\t\tISBN as string,\n\t\tMy_Rating as short,\n\t\tDate_Read as string,\n\t\tDate_Added as string,\n\t\tBookshelves as string,\n\t\tExclusive_Shelf as string,\n\t\tMy_Review as string,\n\t\tSpoiler as string,\n\t\tPrivate_Notes as string,\n\t\tRead_Count as short,\n\t\tOriginal_Purchase_Date as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset4OUT\nsource(output(\n\t\tBook_Id as integer,\n\t\tISBN as string,\n\t\tISBN13 as long,\n\t\tMy_Rating as short,\n\t\tDate_Read as string,\n\t\tDate_Added as string,\n\t\tBookshelves as string,\n\t\tExclusive_Shelf as string,\n\t\tMy_Review as string,\n\t\tSpoiler as string,\n\t\tRead_Count as short,\n\t\tOriginal_Purchase_Date as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBookset5OUT\nsource(output(\n\t\tBook_Id as integer '##0',\n\t\tISBN as string,\n\t\tISBN13 as string,\n\t\tTitle as string,\n\t\tAuthor as string,\n\t\t{Author_l-f} as string,\n\t\tAdditional_Authors as string,\n\t\tAverage_Rating as float '0.00',\n\t\tPublisher as string,\n\t\tBinding as string,\n\t\tNumber_of_Pages as integer '##0',\n\t\tYear_Published as integer '##0',\n\t\tOriginal_Publication_Year as integer '##0'\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CSVBooksetOUT"
 		}
 	}
 }
