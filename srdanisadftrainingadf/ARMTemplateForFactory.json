@@ -198,7 +198,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/ivkovic.srdan@gmail.com/03-Data-Ingestion-Via-ADF/03-Data-Transformation",
+							"notebookPath": "/Users/ivkovic.srdan@gmail.com/03-Data-Ingestion-Via-ADF/includes/Databricks-Data-Transformations",
 							"baseParameters": {
 								"accountName": "srdanisadftrainingblob",
 								"accountKey": "BWJHmfYWM0WE/Hpi8N6wx8MpFx9fwQBF9bqgEFHSvzznKgvPo40wamrKI+WgobnyUzYGolqjOaHSdWh1Eys6rA==",
