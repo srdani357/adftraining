@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
 		},
+		"AzureDatabricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks'"
+		},
 		"PublicDataset_sasUri": {
 			"type": "secureString",
 			"metadata": "Secure string for 'sasUri' of 'PublicDataset'"
@@ -51,6 +55,9 @@
 					},
 					"AzureBlobStorage2_connectionString": {
 						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureDatabricks_accessToken": {
+						"value": "[parameters('AzureDatabricks_accessToken')]"
 					},
 					"PublicDataset_sasUri": {
 						"value": "[parameters('PublicDataset_sasUri')]"
