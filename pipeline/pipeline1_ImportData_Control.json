@@ -66,7 +66,7 @@
 							}
 						},
 						{
-							"name": "Execute Pipeline2",
+							"name": "Import Data on False",
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
