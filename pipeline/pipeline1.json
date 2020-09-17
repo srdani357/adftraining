@@ -277,6 +277,62 @@
 					"referenceName": "AzureSQLsrdanisadftrainingsqldbazsqldb",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Send Failure Notification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Stored procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-30.australiaeast.logic.azure.com:443/workflows/06f6cb0520734be2bf858228846549a6/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3PP4pUiKYUQHA042A4B9Osn96ofOyIIheq3M5CUYNUM",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"DataFactoryName": "@{pipeline().DataFactory}",
+						"PipelineName": "@{pipeline().Pipeline}",
+						"ErrorMessage": "@{activity('Validate Import Rows').error.message}",
+						"EmailTo": "@pipeline().parameters.EmailTo"
+					}
+				}
+			},
+			{
+				"name": "Send Successs Notification",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-30.australiaeast.logic.azure.com:443/workflows/06f6cb0520734be2bf858228846549a6/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3PP4pUiKYUQHA042A4B9Osn96ofOyIIheq3M5CUYNUM",
+					"method": "POST",
+					"body": {
+						"DataFactoryName": "@{pipeline().DataFactory}",
+						"PipelineName": "@{pipeline().Pipeline}",
+						"ErrorMessage": "",
+						"EmailTo": "@pipeline().parameters.EmailTo"
+					}
+				}
 			}
 		],
 		"annotations": []
