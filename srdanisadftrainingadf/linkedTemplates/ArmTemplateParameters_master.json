@@ -20,6 +20,15 @@
 		"PublicDataset_sasUri": {
 			"value": ""
 		},
+		"integrationRuntimeTutorial_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "srdanisadftrainingsqlserver.database.windows.net"
+		},
+		"integrationRuntimeTutorial_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "srdani"
+		},
+		"integrationRuntimeTutorial_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
 		"containerUri": {
 			"value": ""
 		},
