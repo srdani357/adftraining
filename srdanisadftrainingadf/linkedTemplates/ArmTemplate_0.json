@@ -1052,7 +1052,7 @@
 						]
 					},
 					{
-						"name": "ValidateImportRows",
+						"name": "Validate Import Rows",
 						"type": "SqlServerStoredProcedure",
 						"dependsOn": [
 							{
@@ -1083,7 +1083,7 @@
 						"type": "WebActivity",
 						"dependsOn": [
 							{
-								"activity": "ValidateImportRows",
+								"activity": "Validate Import Rows",
 								"dependencyConditions": [
 									"Failed"
 								]
@@ -1116,7 +1116,7 @@
 						"type": "WebActivity",
 						"dependsOn": [
 							{
-								"activity": "ValidateImportRows",
+								"activity": "Validate Import Rows",
 								"dependencyConditions": [
 									"Succeeded"
 								]
