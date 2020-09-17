@@ -88,7 +88,7 @@
 					],
 					"ifTrueActivities": [
 						{
-							"name": "Execute Pipeline1",
+							"name": "Import Data on True",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"userProperties": [],
