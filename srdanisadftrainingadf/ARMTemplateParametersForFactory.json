@@ -11,13 +11,13 @@
 		"AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
 		"AzureDatabricks_accessToken": {
 			"value": ""
 		},
 		"AzureSQLsrdanisadftrainingsqldbazsqldb_connectionString": {
-			"value": ""
-		},
-		"AzureBlobStorage3_connectionString": {
 			"value": ""
 		},
 		"PublicDataset_sasUri": {
