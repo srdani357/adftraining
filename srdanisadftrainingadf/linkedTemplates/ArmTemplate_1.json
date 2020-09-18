@@ -13,87 +13,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/CVSBookset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage3",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "books.csv",
-						"folderPath": "originals",
-						"container": "module5"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Book_Id",
-						"type": "String"
-					},
-					{
-						"name": "ISBN",
-						"type": "String"
-					},
-					{
-						"name": "ISBN13",
-						"type": "String"
-					},
-					{
-						"name": "Title",
-						"type": "String"
-					},
-					{
-						"name": "Author",
-						"type": "String"
-					},
-					{
-						"name": "Author_l-f",
-						"type": "String"
-					},
-					{
-						"name": "Additional_Authors",
-						"type": "String"
-					},
-					{
-						"name": "Average_Rating",
-						"type": "String"
-					},
-					{
-						"name": "Publisher",
-						"type": "String"
-					},
-					{
-						"name": "Binding",
-						"type": "String"
-					},
-					{
-						"name": "Number_of_Pages",
-						"type": "String"
-					},
-					{
-						"name": "Year_Published",
-						"type": "String"
-					},
-					{
-						"name": "Original_Publication_Year",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ReadersBooksInnerJoin')]",
+			"name": "[concat(parameters('factoryName'), '/ReadersBooksOuterJoinCSV')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -191,12 +111,12 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ReadersBooksOuterJoinCSV')]",
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_m4s')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage3",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -204,63 +124,100 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"container": "module5"
+						"fileName": "book_listing.csv",
+						"folderPath": "input/books",
+						"container": "adftraining"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
-						"name": "Book_Id",
 						"type": "String"
 					},
 					{
-						"name": "ISBN",
 						"type": "String"
 					},
 					{
-						"name": "ISBN13",
 						"type": "String"
 					},
 					{
-						"name": "My_Rating",
 						"type": "String"
 					},
 					{
-						"name": "Date_Read",
 						"type": "String"
 					},
 					{
-						"name": "Date_Added",
 						"type": "String"
 					},
 					{
-						"name": "Bookshelves",
 						"type": "String"
 					},
 					{
-						"name": "Exclusive_Shelf",
 						"type": "String"
 					},
 					{
-						"name": "My_Review",
 						"type": "String"
 					},
 					{
-						"name": "Spoiler",
 						"type": "String"
 					},
 					{
-						"name": "Read_Count",
 						"type": "String"
 					},
 					{
-						"name": "Original_Purchase_Date",
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
 						"type": "String"
 					}
 				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_mil')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "PublicDataset",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "crime-data-2016",
+						"container": "training"
+					}
+				}
 			},
 			"dependsOn": []
 		},
@@ -335,7 +292,9 @@
 				],
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_m4s')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/LabPipeline')]",
@@ -446,7 +405,9 @@
 				],
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_mil')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/copy')]",
@@ -1332,8 +1293,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/CVSBookset')]",
-				"[concat(variables('factoryId'), '/datasets/ReadersBooksInnerJoin')]",
 				"[concat(variables('factoryId'), '/datasets/ReadersBooksOuterJoinCSV')]"
 			]
 		},
@@ -1452,6 +1411,53 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipeline1_importData')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "BookReading",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "BookReading",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"TrixiesHistory": {},
+									"SvensHistory": {},
+									"MinervasHIstory": {},
+									"KeikosHIstory": {},
+									"BooksCSV": {},
+									"ReadersBooksInnerJoin": {},
+									"ReadersBooksOuterJoin": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/BookReading')]"
 			]
 		}
 	]
